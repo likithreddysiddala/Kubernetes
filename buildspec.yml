@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - echo "Update Kube Config" 
-      - aws eks update-kubeconfig --name eks-cluster1 --region us-east-1 --role-arn arn:aws:iam::327994082610:role/eks-full
+      - aws eks update-kubeconfig --name eks-cluster1 --region us-east-1 --role-arn arn:aws:iam::327994082610:root
       - echo "Apply changes to kube manifests"
       - kubectl apply -f nginx-pod.yaml
       - kubectl apply -f nginx-service.yml
