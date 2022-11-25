@@ -17,6 +17,7 @@ phases:
   post_build:
     commands:
       - echo "Update Kube Config" 
+      - aws s3 ls 
       - aws eks update-kubeconfig --name EKS-Cluster-CMUMB --region ap-south-1 --role-arn arn:aws:iam::864414049002:role/admin-access
       - echo "Apply changes to kube manifests"
       - kubectl apply -f load-balencer-example.yaml
